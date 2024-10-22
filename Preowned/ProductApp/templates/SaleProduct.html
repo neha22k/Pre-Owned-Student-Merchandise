@@ -1,0 +1,123 @@
+{% load static %}
+<html>
+<head>
+<title>Pre-Owned Student Merchandise</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+ <script LANGUAGE="Javascript" >
+ function checkEmail(t3) {
+	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(t3)){
+		return (true)
+	}
+	alert("Invalid E-mail Address! Please re-enter.")
+	return (false);
+}
+function validate(){
+	var x=document.forms["f1"]["t1"].value;
+	var y=document.forms["f1"]["t2"].value;
+	var a=document.forms["f1"]["t3"].value;
+	var b=document.forms["f1"]["t6"].value;
+	var c=document.forms["f1"]["t7"].value;
+	
+	if(x == null || x==""){
+		window.alert("Product name must be enter");
+		document.f1.t1.focus();
+		return false;
+	}
+	if(y == null || y==""){
+		window.alert("Description must be enter");
+		document.f1.t2.focus();
+		return false;
+	}
+	if(a == null || a==""){
+		window.alert("Price must be enter");
+		document.f1.t3.focus();
+		return false;
+	}
+	if(b == null || b==""){
+		window.alert("Product location must be enter");
+		document.f1.t6.focus();
+		return false;
+	}
+	if(c == null || c==""){
+		window.alert("Product photo must be upload");
+		document.f1.t7.focus();
+		return false;
+	}
+	return true;
+}
+		
+	
+	</script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<center><font size="4" color="yellow"><font size="6" color="black">Pre-Owned Student Merchandise</font></center></font>
+		</div>
+		<div id="slogan">
+			
+		</div>
+	</div>
+	<div id="menu">
+		<ul><center>
+		<li><a href="{% url 'SaleProduct' %}"><font size="" color="black">Sale Product</font></a></font></li>
+	  <li><a href="{% url 'SearchProducts' %}"><font size="" color="black">Search & Purchase Products</font></a></font></li>
+	  <li><a href="{% url 'ViewHistory' %}"><font size="" color="black">View Purchased History</font></a></font></li>
+	   <li><a href="{% url 'Feedback' %}"><font size="" color="black">Feedbacks</font></a></font></li>
+	  
+	   <li><a href="{% url 'index' %}"><font size="" color="black">Logout</font></a></font></li>		
+		</center></ul>
+<br class="clearfix" />
+				</div>
+			
+	<div id="splash">
+		<img class="pic" src="{% static 'images/saleproduct.jpg' %}" width="870" height="230" alt="" />
+	</div>	
+			<center>
+<form name="f1" method="post" action={% url 'SaleProductAction' %} enctype="multipart/form-data" OnSubmit="return validate()">
+	{% csrf_token %}<br/>
+   <h3><b>Sale ProductScreen</b></h3>
+   
+	<font size="" color="black"><center>{{ data }}</center></font>
+						
+						<table align="center" width="80" >
+			 <tr><td><font size="" color="black">Product&nbsp;Name</b></td><td><input type="text" name="t1" style="font-family: Comic Sans MS" size="40"/></td></tr>
+         
+		  
+		<tr><td><font size="" color="black">Description</b></td><td><input type="text" name="t2" style="font-family: Comic Sans MS" size="70"/></td></tr>
+
+		<tr><td><font size="" color="black">Price</b></td><td><input type="text" name="t3" style="font-family: Comic Sans MS" size="15"/></td></tr>
+
+<tr><td><font size="" color="black">Product&nbsp;Condition</b></td><td><select name="t4">
+<option value="Excellent">Excellent</option>
+<option value="Good">Good</option>
+<option value="Medium">Medium</option>
+<option value="Old">Old</option>
+</select>
+</td></tr>
+
+<tr><td><font size="" color="black">Category</b></td><td><select name="t5">
+<option value="Drafters">Drafters</option>
+<option value="Calcies">Calcies</option>
+<option value="Aprons">Aprons</option>
+<option value="Others">Others</option>
+</select>
+</td></tr>
+
+<tr><td><font size="" color="black">Location</b></td><td><input type="text" name="t6" style="font-family: Comic Sans MS" size="45"/></td></tr>
+
+<tr><td><font size="" color="black">Product&nbsp;Photo</b></td><td><input type="file" name="t7" style="font-family: Comic Sans MS" size="45"/></td></tr>
+		
+		 
+			<tr><td></td><td><input type="submit" value="Submit">
+			</td>
+			</table>
+			<br/><br/><br/><br/>
+				</div>	
+					
+				</div>
+				
+	</body>
+</html>

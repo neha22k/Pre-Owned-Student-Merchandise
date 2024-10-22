@@ -1,0 +1,15 @@
+create database preowned;
+use preowned;
+
+create table signup(username varchar(50), password varchar(50),
+contact_no varchar(12),
+email_id varchar(50),
+address varchar(50));
+
+create table product(username varchar(50), product_id int, product_name varchar(50), description varchar(250),
+price double, product_condition varchar(50), category varchar(40), location varchar(150), product_image varchar(50));
+
+create table feedback(username varchar(50), product_id varchar(30), feedback varchar(500), ratings varchar(10));
+
+create table purchase(purchaser_name varchar(50), product_name varchar(50), price double, purchase_date varchar(30));
+

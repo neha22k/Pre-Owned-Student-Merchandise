@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay with UPI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #ffcccb;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgb(206, 243, 143);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #upi-details {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Complete Your Payment</h1>
+        <div id="booking-summary">
+            <h2>Booking Summary</h2>
+           <p>Item: <span id="item-name"></span></p>
+            <p>Date: <span id="booking-date"></span></p>
+            <p>Time: <span id="booking-time"></span></p>
+            <p>Amount: ₹<span id="booking-amount"></span></p>
+        </div>
+        <button onclick="payWithUPI()">Pay with UPI</button>
+        <div id="upi-details" style="display: none;">
+            <h2>UPI Payment Details</h2>
+            <p>UPI ID: <span id="upi-id"></span></p>
+            <p>Please use this UPI ID to make the payment through your preferred UPI app.</p>
+            <p>Amount: ₹<span id="upi-amount"></span></p>
+            <button onclick="confirmPayment()">I've Made the Payment</button>
+        </div>
+    </div>
+
+    <script>
+        // Simulating booking details (in a real app, you'd get this from your booking system)
+        const bookingDetails = {
+            itemName: 'Drafter',
+            date: '2023-06-15',
+            time: '18:00',
+            amount: 1000
+        };
+    
+       // Display booking summary
+       document.getElementById('item-name').textContent = bookingDetails.itemName; // Updated to item-name
+        document.getElementById('booking-date').textContent = bookingDetails.date;
+        document.getElementById('booking-time').textContent = bookingDetails.time;
+        document.getElementById('booking-amount').textContent = bookingDetails.amount;
+    
+        function payWithUPI() {
+            // UPI ID (replace with your actual UPI ID)
+            const upiId = 'yourcompany@upi'; // Replace with your actual UPI ID
+    
+            // Display UPI details
+            document.getElementById('upi-id').textContent = upiId;
+            document.getElementById('upi-amount').textContent = bookingDetails.amount;
+            document.getElementById('upi-details').style.display = 'block';
+    
+            // Generate UPI payment link (for demonstration purposes)
+            const upiLink = `upi://pay?pa=${upiId}&pn=TurfBooking&tn=Booking for ${bookingDetails.turfName}&am=${bookingDetails.amount}&cu=INR`;
+            
+            // In a real application, you might want to open this link or display a QR code
+            console.log('UPI Payment Link:', upiLink);
+        }
+    
+        function confirmPayment() {
+            // Here you would typically verify the payment with your server
+            // For this example, we'll just show a confirmation message
+            alert('Thank you for your payment. Your booking is confirmed 😊');
+            
+            // In a real application, you might redirect to a confirmation page
+            // window.location.href = 'confirmation.html';
+    
+            // For demonstration, we'll reset the UI
+            document.getElementById('upi-details').style.display = 'none';
+        }
+    
+        // Optional: You can add more functions here if needed, such as:
+        // - A function to generate and display a QR code for the UPI payment
+        // - A function to handle payment cancellation
+        // - A function to show payment error messages
+    
+    </script>
+</body>
+</html>

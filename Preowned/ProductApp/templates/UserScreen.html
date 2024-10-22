@@ -1,0 +1,37 @@
+{% load static %}
+<html>
+<head>
+<title>Pre-Owned Student Merchandise</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<center><font size="4" color="yellow"><font size="6" color="black">Pre-Owned Student Merchandise</font></center></font>
+		</div>
+		<div id="slogan">
+			
+		</div>
+	</div>
+	<div id="menu">
+		<ul><center>
+		<li><a href="{% url 'SaleProduct' %}"><font size="" color="black">Sale Product</font></a></font></li>
+	  <li><a href="{% url 'SearchProducts' %}"><font size="" color="black">Search & Purchase Products</font></a></font></li>
+	  <li><a href="{% url 'ViewHistory' %}"><font size="" color="black">View Cart</font></a></font></li>
+	   <li><a href="{% url 'Feedback' %}"><font size="" color="black">Feedbacks</font></a></font></li>
+	  <li><a href="{% url 'Payment' %}"><font size="" color="black">Payment</a></li> <!-- Added Payment Link -->
+	   <li><a href="{% url 'index' %}"><font size="" color="black">Logout</font></a></font></li>		
+		</center></ul>
+		<br class="clearfix" />
+	</div>
+	<div id="splash">
+		<img class="pic" src="{% static 'images/userscreen.jpg' %}" width="870" height="230" alt="" />
+	</div>
+	<br/>
+	<font size="" color="black"><center>{{ data|safe }}</center></font>
+
+	
+</body>
+</html>

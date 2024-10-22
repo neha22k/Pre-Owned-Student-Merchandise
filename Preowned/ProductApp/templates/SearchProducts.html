@@ -1,0 +1,94 @@
+{% load static %}
+<html>
+<head>
+<title>Pre-Owned Student Merchandise</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+ <script LANGUAGE="Javascript" >
+function validate(){
+	var x=document.forms["f1"]["t3"].value;
+	
+	if(x == null || x==""){
+		window.alert("Location must be enter");
+		document.f1.t1.focus();
+		return false;
+	}
+	
+	return true;
+}
+		
+	
+	</script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<center><font size="4" color="yellow"><font size="6" color="black">Pre-Owned Student Merchandise</font></center></font>
+		</div>
+		<div id="slogan">
+			
+		</div>
+	</div>
+	<div id="menu">
+		<ul><center>
+		<li><a href="{% url 'SaleProduct' %}"><font size="" color="black">Sale Product</font></a></font></li>
+	  <li><a href="{% url 'SearchProducts' %}"><font size="" color="black">Search & Purchase Products</font></a></font></li>
+	  <li><a href="{% url 'ViewHistory' %}"><font size="" color="black">View Cart</font></a></font></li>
+	   <li><a href="{% url 'Feedback' %}"><font size="" color="black">Feedbacks</font></a></font></li>
+	  
+	   <li><a href="{% url 'index' %}"><font size="" color="black">Logout</font></a></font></li>		
+		</center></ul>
+<br class="clearfix" />
+				</div>
+			
+	<div id="splash">
+		<img class="pic" src="{% static 'images/searchproduct.jpg' %}" width="870" height="230" alt="" />
+	</div>	
+			<center>
+<form name="f1" method="post" action={% url 'SearchProductsAction' %} OnSubmit="return validate()">
+	{% csrf_token %}<br/>
+   <h3><b>Products Search Screen</b></h3>
+   
+	<font size="" color="black"><center>{{ data }}</center></font>
+						
+						<table align="center" width="80" >
+<tr><td><font size="" color="black">Category</b></td><td><select name="t1">
+<option value="Drafters">Drafters</option>
+<option value="Calcies">Calcies</option>
+<option value="Aprons">Aprons</option>
+<option value="Others">Others</option>
+</select>
+</td></tr>
+                    
+			 <tr><td><font size="" color="black">Search&nbsp;Price&nbsp;Range</b></td><td><select name="t2">
+			 <option value="10-100">10-100</option>
+			<option value="100-200">100-200</option>
+			<option value="200-300">200-300</option>
+			<option value="300-400">300-400</option>
+			<option value="400-500">400-500</option>
+			<option value="500-600">500-600</option>
+			<option value="600-700">600-700</option>
+			<option value="700-800">700-800</option>
+			<option value="800-900">800-900</option>
+			<option value="900-1000">900-1000</option>
+			<option value="Above 1000">Above 1000</option>
+			 </select>
+			 </td></tr>
+         
+		  
+		<tr><td><font size="" color="black">Location</b></td><td><input type="text" name="t3" style="font-family: Comic Sans MS" size="45"/></td></tr>
+
+		
+		 
+			<tr><td></td><td><input type="submit" value="Search">
+			</td>
+			</table>
+			<br/><br/><br/><br/>
+			
+				</div>	
+					
+				</div>
+				
+	</body>
+</html>

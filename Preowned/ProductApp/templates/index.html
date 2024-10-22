@@ -1,0 +1,50 @@
+{% load static %}
+<html>
+<head>
+<title>Pre-Owned Student Merchandise</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+</head>
+<body>
+	<script>
+		window.embeddedChatbotConfig = {
+		chatbotId: "I-QlT9MguUDlQxoJPvEFJ",
+		domain: "www.chatbase.co"
+		}
+		</script>
+		<script
+		src="https://www.chatbase.co/embed.min.js"
+		chatbotId="I-QlT9MguUDlQxoJPvEFJ"
+		domain="www.chatbase.co"
+		defer>
+		</script>
+		   
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<left><font size="6" color="black">Pre-Owned Student Merchandise</font></left>
+		</div>
+		<div id="slogan">
+			
+		</div>
+	</div>
+	<div id="menu">
+		<ul><center>
+	  <li><a href="{% url 'index' %}"><font size="" color="black">Home</a></font></li>
+	  <li><a href="{% url 'AdminLogin' %}"><font size="" color="black">Admin Login</a></li>
+      <li><a href="{% url 'UserLogin' %}"><font size="" color="black">User Login</a></li>
+     <li><a href="{% url 'Register' %}"><font size="" color="black">New User Signup Here</a></li>	
+				</center></ul>
+		</center></ul>
+		<br class="clearfix" />
+	</div>
+	<div id="splash">
+		<img class="pic" src="{% static 'images/index2.jpg' %}" width="900" height="300" alt="" />
+	</div>
+	<br/>
+	<p align="justify"><font size="5" style="font-family: Comic Sans MS" color="black"><center>
+		Pre-Owned Student Merchandise
+
+</p>
+</body>
+</html>
